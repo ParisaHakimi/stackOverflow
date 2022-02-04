@@ -1,38 +1,573 @@
-.App {
-  text-align: center;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(211, 211, 211, 0.3);
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.144);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 2rem;
+  background-color: #fff;
+}
+.header .logoLink {
+  width: 10%;
+}
+.header .logoLink .logo {
+  width: 100%;
+  margin: 1rem auto;
+}
+.header .menu {
+  display: flex;
+  min-width: 20%;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .menu li {
+  text-transform: capitalize;
+}
+.header .menu li a {
+  border-radius: 45%;
+  padding: 0.5rem;
+  transition: 0.6s;
+  color: #3d3d3d;
+}
+.header .menu li a:hover {
+  background-color: lightgray;
+}
+.header .search-input {
+  width: 50%;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .search-input input {
+  width: 100%;
+  padding: 0.5rem;
+}
+.search-btn {
+  display: none;
+}
+.header .register-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+}
+.header .register-btn .btn {
+  padding: 0.3rem 0.4rem;
+  border-radius: 4px;
+  transition: 0.4s;
+}
+.header .logIn-btn {
+  margin-right: 0.3rem;
+  color: #39739d;
+  background-color: rgb(215, 230, 235);
+  border: 1px solid #39739d;
+}
+.header .logIn-btn:hover {
+  background-color: rgb(192, 223, 233);
+}
+.header .signUp-btn {
+  background-color: #0a95ff;
+  color: #fff;
+  border: 1px solid #0a95ff;
+}
+.header .signUp-btn:hover {
+  background-color: #0462aa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header responsive  */
+@media (max-width: 1123px) {
+  .header .menu {
+    min-width: 26%;
+  }
+  .header .search-input {
+    width: 35%;
+  }
+  .header .logoLink {
+    width: 15%;
+  }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 911px) {
+  .header .menu {
+    min-width: 35%;
+  }
+  .header .search-input {
+    width: 40%;
+  }
+  .header .register-btn {
+    min-width: 15%;
+  }
+  .header .register-btn .btn {
+    padding: 0.1rem 0.1rem;
+    font-size: 1rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 822px) {
+  .header .logoLink {
+    width: 20%;
+  }
+  .about,
+  .forTeams {
+    display: none;
+  }
+  #search-btn input {
+    display: none;
+  }
+  #search-btn {
+    display: flex;
+    justify-content: end;
+  }
+  .search-btn {
+    display: block;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0.5rem;
+    border: none;
+    transition: 0.4s;
+  }
+  .search-btn:hover {
+    background-color: #ddd;
+  }
+  .header .register-btn {
+    min-width: 30%;
+  }
+  .header .logoLink {
+    width: 30%;
+  }
+}
+@media (max-width: 791px) {
+  .header .register-btn {
+    min-width: 30%;
+  }
+  .header .logoLink {
+    width: 50%;
+  }
+}
+@media (max-width: 673px) {
+  .header .menu li a {
+    font-size: 0.8rem;
+  }
+}
+
+/* main section */
+.container {
+  width: 100%;
+  margin: 10px auto;
+}
+/* Home page */
+.home {
+  background-color: #444;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 70vh;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.box-container {
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.box {
+  width: 49%;
+  height: 300px;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.left-box {
+  background-color: #fcd3cb;
+  display: flex;
+  flex-direction: column;
+}
+.left-box .icon,
+.right-box .icon {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3rem;
+  height: 50px;
+}
+.right-box .icon i {
+  color: dodgerblue;
+}
+.left-box .icon i {
+  color: #ee7600;
+}
+.left-box p,
+.right-box p {
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 1rem;
+}
+.left-box a {
+  width: 80%;
+  display: block;
+  background-color: #ee7600;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: capitalize;
+  text-align: center;
+}
+.right-box {
+  background-color: rgb(176, 214, 252);
+}
+.line {
+  width: 60%;
+  height: 1px;
+  background-color: dodgerblue;
+  margin: 1rem auto;
+  position: relative;
+}
+.line > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgb(176, 214, 252);
+  transform: translate(-50%, -50%);
+  padding: 0 0.6rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.right-box .links {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.right-box .links .organizations,
+.right-box .links .team {
+  background-color: dodgerblue;
+  padding: 0.5rem 1.1rem;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+.right-box .links .organizations {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+.dynamic-text {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.dynamic-text .dynamic::after {
+  content: "";
+  animation: dynamic-text 10s ease infinite;
+  color: #ee7600;
+  font-weight: bold;
+}
+@keyframes dynamic-text {
+  0%,
+  100% {
+    content: "developer";
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    content: "data Scientist";
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    content: "system admin";
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    content: "mobile developer";
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    content: "game developer";
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+}
+
+/* home page responsive */
+@media (max-width: 767px) {
+  .box {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .left-box {
+    margin-bottom: 1rem;
+  }
+}
+
+/* login page */
+.logIn-container {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+}
+.logIn-InnerContainer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+}
+.login-logo {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+.login-logo img {
+  width: 10%;
+  text-align: center;
+}
+.login-btnGroup,
+.signup-btnGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+.login-btnGroup li,
+.signup-btnGroup li {
+  text-align: center;
+  display: flex;
+}
+.login-btnGroup li a,
+.signup-btnGroup li a {
+  width: 100%;
+  display: inline-block;
+  padding: 0.6rem 0;
+  color: #fff;
+  border-radius: 10px;
+}
+.login-btnGroup li .google,
+.signup-btnGroup li .google {
+  background-color: #fff;
+  color: #333;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+}
+.login-btnGroup li .github,
+.signup-btnGroup li .github {
+  background-color: #3d3d3d;
+  color: #eee;
+  margin: 0.7rem 0;
+}
+.login-btnGroup li .facebook,
+.signup-btnGroup li .facebook {
+  background-color: #385499;
+  color: #eee;
+}
+.login-form,
+.signup-form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.login-form input,
+.signup-form input {
+  width: 100%;
+}
+.login-inputGroup label,
+.signup-inputGroup label {
+  font-weight: bold;
+  padding: 0.7rem;
+  display: block;
+}
+.login-inputGroup input,
+.signup-inputGroup input {
+  padding: 0.7rem;
+  border-radius: 5px;
+}
+.login-form button,
+.signup-form button {
+  padding: 0.7rem;
+  background-color: #0a95ff;
+  border-radius: 10px;
+  color: #fff;
+  margin-top: 0.7rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* sign up page */
+.signUp-container {
+  width: 70%;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.signUp-container p {
+  font-size: 1.6rem;
+  text-align: center;
+}
+.signup-InnerContainer {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+}
+.signUpUsers {
+  display: flex;
+  padding: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.signUpUsers li {
+  width: 49%;
+  padding: 1rem;
+  border: 1px solid dodgerblue;
+}
+.signUpUsers li h2 {
+  font-size: 16px;
+}
+.signUpUsers li h3 {
+  font-size: 16px;
+  margin: 0.5rem 0;
+}
+.error-msg {
+  color: red;
+  text-align: center;
+  font-style: 20px;
+  margin-bottom: 1rem;
 }
 
-@keyframes App-logo-spin {
+/* Log in and Sign up pages responsive */
+@media (max-width: 768px) {
+  .signUp-container,
+  .logIn-container {
+    width: 75%;
+  }
+  .signup-InnerContainer,
+  .logIn-InnerContainer {
+    width: 100%;
+    padding: 1rem;
+  }
+  .login-inputGroup input,
+  .signup-inputGroup input {
+    padding: 0.4rem;
+  }
+}
+@media (max-width: 650px) {
+  .signUp-container {
+    width: 70%;
+  }
+}
+
+/* posts page */
+.posts {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1rem;
+}
+.post {
+  width: 32%;
+  padding: 1rem;
+  border: 2px solid blue;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.post h2 {
+  text-align: center;
+  text-transform: capitalize;
+}
+.postPage {
+  width: 90%;
+  margin: 2rem auto;
+  height: 60vh;
+}
+.postPage h2 {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.postPage .linkToHome {
+  margin: 2rem;
+  display: inline-block;
+  border: 2px solid blue;
+  padding: 1rem;
+}
+
+.loader {
+  margin: 100px auto;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #000;
+  border-top-color: dodgerblue;
+  border-radius: 50%;
+  animation: loader 0.75s infinit linear;
+}
+@keyframes loader {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+}
+
+/* footer section */
+
+.footer {
+  width: 100%;
+  display: flex;
+  padding: 3rem 2rem;
+  background-color: #414b58;
+}
+
+.footer p {
+  color: #c3c3c3;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.4rem;
 }
